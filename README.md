@@ -1,3 +1,11 @@
+MyApp - Extended Application Setup Guide
+This guide provides instructions on how to set up and run the extended MyApp application locally. The extended application includes components developed in Go, Next.js (TypeScript), and WordPress.
+
+Prerequisites
+Before starting, ensure you have the following installed on your machine:
+
+Docker: Install Docker
+Docker Compose: Install Docker Compose
 
 To push Docker images to Amazon Elastic Container Registry (ECR) for your Go and Next.js applications, follow these steps. AWS account set up with permissions to access ECR.
 
