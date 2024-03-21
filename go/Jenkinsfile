@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    triggers {
+        branch('main')
+        branch('feature/*')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/bangarrc/CICD-Pipeline.git'
+                sh 'go build -o myapp'
+                sh 'go test ./...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'scp myapp user@server:/path/to/deployment/'
+            }
+        }
+    }
+
+    post {
+        success {
+            build job: 'Deploy-Production-Go', parameters: []
+        }
+        failure {
+            echo 'Deployment to staging failed!'
+        }
+    }
+}

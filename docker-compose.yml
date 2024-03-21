@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  # Go Service
+  go-app:
+    build:
+      context: ./go-app
+    ports:
+      - "8080:8080"
+
+  # Next.js Service
+  nextjs-app:
+    build:
+      context: ./nextjs-app
+    ports:
+      - "3000:3000"
